@@ -1,3 +1,398 @@
+Citizen.CreateThread(function()
+
+
+
+    local temperatureneon = 25
+
+    while true do
+
+        local ped = GetPlayerPed(-1)
+
+        local car = GetVehiclePedIsIn(ped)
+
+        local speed = GetEntitySpeed(car) * 2.2369
+
+        local merge = GetIsVehicleEngineRunning(car)
+
+        
+
+        if GetPedInVehicleSeat(car,-1)== ped then
+
+        	local RPM = GetVehicleCurrentRpm(car)
+
+        	local viata = GetVehicleEngineHealth(car) 
+
+        	if merge == false and temperatureneon >= 10 then
+
+        		mate = 0
+
+        		mate2 = math.random(20,25)
+
+        		temperatureneon = temperatureneon - mate2 / 1000
+
+	        elseif temperatureneon < 85 then
+
+	            mate = math.random(1,2)
+
+	            mate2 = math.random(1,2)
+
+	            temperatureneon = temperatureneon + mate / 100
+
+	            --temperatureneon = temperatureneon + mate / 100
+
+	        elseif temperatureneon > 84 and temperatureneon < 86 then
+
+	            temperatureneon = temperatureneon + 1 
+
+	        elseif temperatureneon < 105 then
+
+	            mate = math.random(1,3)
+
+	            mate2 = math.random(1,5)
+
+	        elseif temperatureneon < 115 then
+
+	            mate = math.random(1,3)
+
+	            mate2 = math.random(2,10)
+
+	        elseif temperatureneon < 120 then
+
+	            mate = math.random(1,2)
+
+	            mate2 = math.random(5,15)
+
+	        elseif temperatureneon < 130 then
+
+	            mate = math.random(1,4)
+
+	            mate2 = math.random(10,15)
+
+	        elseif temperatureneon < 145 then
+
+	            mate = math.random(1,4)
+
+	            mate2 = math.random(12,17)
+
+	        elseif viata < 365 then
+
+	            mate = math.random(5000,15000)
+
+	            mate2 = math.random(15,20)
+
+	        end
+
+	        if car ~= 0 then
+
+	            if speed > 100 then
+
+	                temperatureneon = temperatureneon + mate / 1000                
+
+	            end
+
+	            if speed > 75 and speed < 100 then
+
+	                if math.random(1,2) == 1 then
+
+	                   temperatureneon = temperatureneon + mate / 1000
+
+	                        
+
+	                elseif temperatureneon ~= nill then
+
+	                    if temperatureneon > 50 then
+
+	                        temperatureneon = temperatureneon - mate2 / 1000
+
+	                    end
+
+	            
+
+	                end
+
+	            end
+
+
+	            temperatureneon2 = temperatureneon + 50
+
+	        else
+
+	            temperatureneon = 24
+
+	        end
+
+	        if RPM > 0.92 then
+
+	            temperatureneon = temperatureneon + 5 / 1000
+
+	        elseif viata < 550 and speed > 40 then
+
+	            SetVehicleEngineHealth(car, viata - 1 / 1400)
+
+	        elseif temperatureneon > 125 and temperatureneon < 130 then --de la 125 grade motorul incepe sa se strice
+
+	            SetVehicleEngineHealth(car, viata - 1 / 1450)
+
+	        elseif temperatureneon > 130 and temperatureneon < 135 then --130 grade motorul se strica m ai rau decat la 125
+
+	            SetVehicleEngineHealth(car, viata - 1 / 750)
+
+	        elseif temperatureneon > 135 and temperatureneon < 155 then --135 grade motorul se strica m ai rau decat la 130
+
+	            SetVehicleEngineHealth(car, viata - 1 / 400)
+
+	        elseif temperatureneon > 155 and temperatureneon < 99999 then --155 grade motorul se strica m ai rau decat la 155
+
+	            SetVehicleEngineHealth(car, viata - 15) 
+
+	        end
+
+	        if temperatureneon < 85 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 0, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 86 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 0, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 87 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 0, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 88 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 0, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 89 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 0, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 90 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 0, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 91 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 05, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 92 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 05, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 93 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 05, 255, 0, 255, 0.205, 0.9)    
+
+	        elseif temperatureneon < 94 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 05, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 95 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 15, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 96 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 25, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 97 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 35, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 98 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 45, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 99 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 55, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 100 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 65, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 101 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 75, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 102 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 85, 255, 0, 255, 0.205, 0.9)    
+
+	        elseif temperatureneon < 103 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 95, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 104 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 105, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 115 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 115, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 116 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 125, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 107 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 135, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 108 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 145, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 109 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 155, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 110 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 160, 255, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 111 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 170, 240, 0, 255, 0.205, 0.9)  
+
+	        elseif temperatureneon < 112 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 180, 230, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 113 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 190, 220, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 114 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 200, 210, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 115 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 210, 200, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 116 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 220, 190, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 117 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 230, 180, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 118 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 240, 170, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 119 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 160, 0, 255, 0.205, 0.9)    
+
+	        elseif temperatureneon < 120 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 150, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 121 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 140, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 122 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 130, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 123 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 120, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 124 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 110, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 125 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 100, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 126 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 90, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 127 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 80, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 128 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 70, 0, 255, 0.205, 0.9)    
+
+	        elseif temperatureneon < 129 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 60, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 130 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 50, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 131 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 40, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 132 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 30, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 133 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 20, 0, 255, 0.205, 0.9)
+
+	        elseif temperatureneon < 134 then
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 10, 0, 255, 0.205, 0.9)
+
+	        else
+
+	            displayText(" Temperatura: " .. math.floor(temperatureneon+0.1), 0, 255, 0, 0, 255, 0.205, 0.9)
+
+	        end
+
+	    else
+
+	    	temperatureneon = 24
+
+	   	end
+
+        Citizen.Wait(1)
+
+    end
+
+end)
+
+
+--Display temperatura\/
+
+function displayText(text, justification, red, green, blue, alpha, posx, posy)
+
+    SetTextFont(1)
+
+    SetTextWrap(0.0, 1.0)
+
+    SetTextScale(0.4, 0.4)
+
+    SetTextJustification(justification)
+
+    SetTextColour(red, green, blue, alpha)
+
+    SetTextOutline()
+
+
+
+    BeginTextCommandDisplayText("STRING")
+
+    AddTextComponentSubstringPlayerName(text)
+
+    EndTextCommandDisplayText(0.50, 0.975)
+
+end
+
+
 Citizen.CreateThread( function()
 	
 	while true do
@@ -27,9 +422,9 @@ Citizen.CreateThread( function()
 				local GetHandlingfTractionCurveLateral = GetVehicleHandlingFloat(vehicle, "CHandlingData", "fTractionCurveLateral")
 				local GetHandlingfLowSpeedTractionLossMult = GetVehicleHandlingFloat(vehicle, "CHandlingData", "fLowSpeedTractionLossMult")
 				if GetHandlingfInitialDragCoeff >= 50.0 then
-					displayText("ESC Off ", 0, 255, 0, 0, 255, 0.205, 1)
+					displayText1("ESC Off ", 0, 255, 0, 0, 255, 0.205, 1)
 				else
-					displayText("ESC on ", 0, 4, 255, 0, 0.1, 1)
+					displayText1("ESC on ", 0, 4, 255, 0, 0.1, 1)
 				end
 
 			
@@ -129,217 +524,11 @@ function DriftOn()
 
 end
 
+-- Function
+function GetPed() return GetPlayerPed(-1) end
+function GetCar() return GetVehiclePedIsIn(GetPlayerPed(-1),false) end
 
-Citizen.CreateThread(function()
-
-    local Temp = 25
-    while true do
-        local ped = GetPlayerPed(-1)
-        local car = GetVehiclePedIsIn(ped)
-        local speed = GetEntitySpeed(car) * 2
-        local merge = GetIsVehicleEngineRunning(car)
-        
-        if GetPedInVehicleSeat(car,-1)== ped then
-        	local RPM = GetVehicleCurrentRpm(car)
-        	local viata = GetVehicleEngineHealth(car) 
-        	if merge == false and Temp >= 10 then
-        		mate = 0
-        		mate2 = math.random(20,25)
-        		Temp = Temp - mate2 / 1000
-	        elseif Temp < 85 then
-	            mate = math.random(1,3)
-	            mate2 = math.random(1,4)
-	            Temp = Temp + mate / 100
-	            --Temp = Temp + mate / 100
-	        elseif Temp > 84 and Temp < 86 then
-	            Temp = Temp + 1 
-	        elseif Temp < 105 then
-	            mate = math.random(6,14)
-	            mate2 = math.random(1,5)
-	        elseif Temp < 115 then
-	            mate = math.random(4,7)
-	            mate2 = math.random(2,17)
-	        elseif Temp < 120 then
-	            mate = math.random(3,6)
-	            mate2 = math.random(5,18)
-	        elseif Temp < 130 then
-	            mate = math.random(1,4)
-	            mate2 = math.random(10,20)
-	        elseif Temp < 145 then
-	            mate = math.random(1,28)
-	            mate2 = math.random(12,24)
-	        elseif viata < 365 then
-	            mate = math.random(5000,15000)
-	            mate2 = math.random(15,20)
-	        end
-	        if car ~= 0 then
-	            if speed > 70 then
-	                Temp = Temp + mate / 1000                
-	            end
-	            if speed > 35 and speed < 50 then
-	                if math.random(1,2) == 1 then
-	                   Temp = Temp + mate / 1000
-	                        
-	                elseif Temp ~= nill then
-	                    if Temp > 50 then
-	                        Temp = Temp - mate2 / 1000
-	                    end
-	            
-	                end
-	            end
-	            if speed < 35 and Temp > 50 then
-	                Temp = Temp - mate2 / 1000
-	            end
-	            Temp2 = Temp + 50
-	        else
-	            Temp = 24
-	        end
-	        if RPM > 0.85 then
-	            Temp = Temp + 5 / 1000
-	        elseif viata < 550 and speed > 40 then
-	            SetVehicleEngineHealth(car, viata - 1 / 1400)
-	        elseif Temp > 125 and Temp < 130 then 
-	            SetVehicleEngineHealth(car, viata - 1 / 1450)
-	        elseif Temp > 130 and Temp < 135 then 
-	            SetVehicleEngineHealth(car, viata - 1 / 750)
-	        elseif Temp > 135 and Temp < 155 then 
-	            SetVehicleEngineHealth(car, viata - 1 / 400)
-	        elseif Temp > 155 and Temp < 99999 then 
-	            SetVehicleEngineHealth(car, viata - 15) 
-	        end
-	        if Temp < 85 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 0, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 86 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 0, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 87 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 0, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 88 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 0, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 89 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 0, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 90 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 0, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 91 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 05, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 92 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 05, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 93 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 05, 255, 0, 255, 0.205, 0.9)    
-	        elseif Temp < 94 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 05, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 95 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 15, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 96 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 25, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 97 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 35, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 98 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 45, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 99 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 55, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 100 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 65, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 101 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 75, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 102 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 85, 255, 0, 255, 0.205, 0.9)    
-	        elseif Temp < 103 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 95, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 104 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 105, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 115 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 115, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 116 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 125, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 107 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 135, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 108 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 145, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 109 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 155, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 110 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 160, 255, 0, 255, 0.205, 0.9)
-	        elseif Temp < 111 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 170, 240, 0, 255, 0.205, 0.9)  
-	        elseif Temp < 112 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 180, 230, 0, 255, 0.205, 0.9)
-	        elseif Temp < 113 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 190, 220, 0, 255, 0.205, 0.9)
-	        elseif Temp < 114 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 200, 210, 0, 255, 0.205, 0.9)
-	        elseif Temp < 115 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 210, 200, 0, 255, 0.205, 0.9)
-	        elseif Temp < 116 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 220, 190, 0, 255, 0.205, 0.9)
-	        elseif Temp < 117 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 230, 180, 0, 255, 0.205, 0.9)
-	        elseif Temp < 118 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 240, 170, 0, 255, 0.205, 0.9)
-	        elseif Temp < 119 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 160, 0, 255, 0.205, 0.9)    
-	        elseif Temp < 120 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 150, 0, 255, 0.205, 0.9)
-	        elseif Temp < 121 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 140, 0, 255, 0.205, 0.9)
-	        elseif Temp < 122 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 130, 0, 255, 0.205, 0.9)
-	        elseif Temp < 123 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 120, 0, 255, 0.205, 0.9)
-	        elseif Temp < 124 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 110, 0, 255, 0.205, 0.9)
-	        elseif Temp < 125 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 100, 0, 255, 0.205, 0.9)
-	        elseif Temp < 126 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 90, 0, 255, 0.205, 0.9)
-	        elseif Temp < 127 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 80, 0, 255, 0.205, 0.9)
-	        elseif Temp < 128 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 70, 0, 255, 0.205, 0.9)    
-	        elseif Temp < 129 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 60, 0, 255, 0.205, 0.9)
-	        elseif Temp < 130 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 50, 0, 255, 0.205, 0.9)
-	        elseif Temp < 131 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 40, 0, 255, 0.205, 0.9)
-	        elseif Temp < 132 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 30, 0, 255, 0.205, 0.9)
-	        elseif Temp < 133 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 20, 0, 255, 0.205, 0.9)
-	        elseif Temp < 134 then
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 10, 0, 255, 0.205, 0.9)
-	        else
-	            tempdisplay(" Temperatura " .. math.floor(Temp+0.1), 0, 255, 0, 0, 255, 0.205, 0.9)
-	        end
-	    else
-	    	Temp = 24
-	   	end
-        Citizen.Wait(1)
-    end
-end)
-function tempdisplay(text, justification, red, green, blue, alpha, posx, posy)
-    SetTextFont(2)
-    SetTextWrap(0.0, 1.0)
-    SetTextScale(0.35, 0.35)
-    SetTextJustification(justification)
-    SetTextColour(red, green, blue, alpha)
-    SetTextOutline()
-
-    BeginTextCommandDisplayText("STRING")
-    AddTextComponentSubstringPlayerName(text)
-    EndTextCommandDisplayText(0.50, 0.978)
-end
-
-
-
-
-
-function drawNotification(text)
-    SetNotificationTextEntry("STRING")
-    AddTextComponentString(text)
-    DrawNotification(false, false)
-end
-
-function displayText(text, justification, red, green, blue, alpha, posx, posy)
+function displayText1(text, justification, red, green, blue, alpha, posx, posy)
     SetTextFont(2)
     SetTextWrap(0.0, 1.0)
     SetTextScale(0.37, 0.37)
@@ -349,31 +538,5 @@ function displayText(text, justification, red, green, blue, alpha, posx, posy)
 
     BeginTextCommandDisplayText("STRING")
     AddTextComponentSubstringPlayerName(text)
-    EndTextCommandDisplayText(0.50, 0.874)
+    EndTextCommandDisplayText(0.50, 0.94)
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
